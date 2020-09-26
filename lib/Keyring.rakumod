@@ -1,4 +1,4 @@
-use v6;
+use v6.d;
 
 #
 # Copyright © 2020 Joelle Maslak
