@@ -5,7 +5,7 @@
   ],
   "build-depends" : [ ],
   "depends" : [ ],
-  "description" : "",
+  "description" : "Raku OS Keyring Support Library",
   "license" : "Artistic-2.0",
   "name" : "Keyring",
   "perl" : "6.d",
