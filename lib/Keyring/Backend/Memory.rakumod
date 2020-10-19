@@ -7,7 +7,7 @@ use v6;
 
 use Keyring::Backend;
 
-unit class Keyring::Backend::Memory:ver<0.0.1>:auth<cpan:JMASLAK> is Keyring::Backend;
+unit class Keyring::Backend::Memory:ver<0.1.0>:auth<cpan:JMASLAK> is Keyring::Backend;
 
 has %!items;
 

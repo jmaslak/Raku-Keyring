@@ -1,6 +1,8 @@
 Revision history for Keyring
 
 {{$NEXT}}
+
+0.1.0  2020-10-19T04:29:21Z
     - Add subscript ("hash") interface
 
 0.0.1  2020-09-26T23:07:28Z

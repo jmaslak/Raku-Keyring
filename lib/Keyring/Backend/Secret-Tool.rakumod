@@ -7,7 +7,7 @@ use v6;
 
 use Keyring::Backend;
 
-unit class Keyring::Backend::Secret-Tool:ver<0.0.1>:auth<cpan:JMASLAK> is Keyring::Backend;
+unit class Keyring::Backend::Secret-Tool:ver<0.1.0>:auth<cpan:JMASLAK> is Keyring::Backend;
 
 our $cmd = "secret-tool";
 my $working;  # Cached "is this working" result

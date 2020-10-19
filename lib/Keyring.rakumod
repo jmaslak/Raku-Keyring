@@ -5,7 +5,7 @@ use v6.d;
 # All Rights Reserved - See License
 #
 
-unit class Keyring:ver<0.0.1>:auth<cpan:JMASLAK>;
+unit class Keyring:ver<0.1.0>:auth<cpan:JMASLAK>;
 
 use Keyring::Backend;
 use Keyring::Backend::MacOSX;

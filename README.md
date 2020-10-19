@@ -11,9 +11,20 @@ SYNOPSIS
     use Keyring;
 
     my $keyring = Keyring.new;
+
+    #
+    # Using Procedural Interface
+    #
     $keyring.store("MCP", "Root Password", "Pa$$w0rd");
     $value = $keyring.get("MCP", "Root Password");
     $keyring.delete("MCP", "Root Password");
+
+    #
+    # Using Subscript Interface
+    #
+    $keyring{"MCP" => "Root Password"} = "Pa$$w0rd";
+    $value = $keyring{"MCP" => "Root Password");
+    $keyring{"MCP" => "Root Password"}:delete;
 
 DESCRIPTION
 ===========
@@ -71,8 +82,8 @@ backend
 
 This attribute allows access to the backend used by this module. It should be an instance of a `Keyring::Backend` object. If this attribute is not set, it is initialized on the first method call to the `Keyring` instance, using the `@default-backends` variable to determine which backends to query.
 
-METHODS
-=======
+PROCEDURAL INTERFACE METHODS
+============================
 
 get(Str:D $attribute, Str:D $label -->Str)
 ------------------------------------------
@@ -100,6 +111,11 @@ delete(Str:D $attribute, Str:D $label -->Bool)
 This deletes the secret for the corresponding attribute and label from the user's keyring.
 
 If this method is called while the `backend` attribute is not yet initialized, it will attempt to locate a suitable keystore using the `@default-backends` variable. Should no backend be suitable, this method will `die()`.
+
+SUBSCRIPT INTERFACE METHODS
+===========================
+
+The standard subscript methods (like a `Hash`) will work with this object. Note that the hash "key" is really the attribute and label passed as a `Pair` object (the "key" of the pair is the attribute, the value is the label). All standard hash methods work except for binding a value.
 
 AUTHOR
 ======

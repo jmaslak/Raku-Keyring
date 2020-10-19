@@ -5,7 +5,7 @@ use v6.d;
 # All Rights Reserved - See License
 #
 
-unit class Keyring::Backend:ver<0.0.1>:auth<cpan:JMASLAK>;
+unit class Keyring::Backend:ver<0.1.0>:auth<cpan:JMASLAK>;
 
 method get(Str:D $attribute, Str:D $label --> Str) { … }
 method store(Str:D $attribute, Str:D $label, Str:D $secret --> Bool) { … }
