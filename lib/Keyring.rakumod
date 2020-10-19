@@ -21,6 +21,11 @@ our @default-backends = [
 has Keyring::Backend:U @.backend-priority = @default-backends;
 has Keyring::Backend   $.backend is rw;
 
+
+#
+# Procedural Interface
+#
+
 method get(Str:D $attribute, Str:D $label --> Str) {
     self.init_backend() unless $!backend.defined;
     return $!backend.get($attribute, $label);
@@ -35,6 +40,40 @@ method delete(Str:D $attribute, Str:D $label --> Bool) {
     self.init_backend() unless $!backend.defined;
     return $!backend.delete($attribute, $label);
 }
+
+
+#
+# Subscript Interface
+#
+
+method EXISTS-KEY(Pair:D $key) {
+    self.init_backend() unless $!backend.defined;
+
+    return $!backend.get($key.key, $key.value).defined;
+}
+
+method ASSIGN-KEY(Pair:D $key, $secret) {
+    self.init_backend() unless $!backend.defined;
+
+    return $!backend.store($key.key, $key.value, $secret).defined;
+}
+
+method AT-KEY(Pair:D $key) {
+    self.init_backend() unless $!backend.defined;
+
+    return $!backend.get($key.key, $key.value);
+}
+
+method DELETE-KEY(Pair:D $key) {
+    self.init_backend() unless $!backend.defined;
+
+    return $!backend.delete($key.key, $key.value);
+}
+
+
+#
+# Internal Methods
+#
 
 method init_backend(-->Nil) {
     for self.backend-priority<> -> $back {
@@ -58,9 +97,21 @@ Keyring - Raku OS Keyring Support Library
   use Keyring;
 
   my $keyring = Keyring.new;
+
+  #
+  # Using Procedural Interface
+  #
   $keyring.store("MCP", "Root Password", "Pa$$w0rd");
   $value = $keyring.get("MCP", "Root Password");
   $keyring.delete("MCP", "Root Password");
+
+  #
+  # Using Subscript Interface
+  #
+  $keyring{"MCP" => "Root Password"} = "Pa$$w0rd";
+  $value = $keyring{"MCP" => "Root Password");
+  $keyring{"MCP" => "Root Password"}:delete;
+
 
 =head1 DESCRIPTION
 
@@ -145,7 +196,7 @@ set, it is initialized on the first method call to the C<Keyring> instance,
 using the C<@default-backends> variable to determine which backends to
 query.
 
-=head1 METHODS
+=head1 PROCEDURAL INTERFACE METHODS
 
 =head2 get(Str:D $attribute, Str:D $label -->Str)
 
@@ -187,6 +238,13 @@ If this method is called while the C<backend> attribute is not yet
 initialized, it will attempt to locate a suitable keystore using
 the C<@default-backends> variable.  Should no backend be suitable, this
 method will C<die()>.
+
+=head1 SUBSCRIPT INTERFACE METHODS
+
+The standard subscript methods (like a C<Hash>) will work with this object.
+Note that the hash "key" is really the attribute and label passed as a C<Pair>
+object (the "key" of the pair is the attribute, the value is the label).
+All standard hash methods work except for binding a value.
 
 =head1 AUTHOR
 
