@@ -30,5 +30,7 @@ ok $result, "Delete executed properly";
 $result = $keyring.get($attribute, $value);
 ok !$result.defined, "Result doesn't exist";
 
+diag "Class type: {$keyring.backend.^name}";
+
 done-testing;
 
