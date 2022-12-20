@@ -1,6 +1,7 @@
 Revision history for Keyring
 
 {{$NEXT}}
+    - Migrate to Raku module ecosystem
 
 0.1.0  2020-10-19T04:29:21Z
     - Add subscript ("hash") interface

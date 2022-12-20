@@ -1,11 +1,11 @@
 use v6.d;
 
 #
-# Copyright © 2020 Joelle Maslak
+# Copyright © 2020-2022 Joelle Maslak
 # All Rights Reserved - See License
 #
 
-unit class Keyring:ver<0.1.0>:auth<cpan:JMASLAK>;
+unit class Keyring:ver<0.1.0>:auth<zef:jmaslak>;
 
 use Keyring::Backend;
 use Keyring::Backend::MacOSX;
@@ -252,7 +252,7 @@ Joelle Maslak <jmaslak@antelope.net>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright © 2020 Joelle Maslak
+Copyright © 2020-2022 Joelle Maslak
 
 This library is free software; you can redistribute it and/or modify it under the Artistic License 2.0.
 

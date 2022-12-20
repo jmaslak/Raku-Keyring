@@ -7,7 +7,7 @@ use v6;
 
 use Keyring::Backend;
 
-unit class Keyring::Backend::MacOSX:ver<0.1.0>:auth<cpan:JMASLAK> is Keyring::Backend;
+unit class Keyring::Backend::MacOSX:ver<0.1.0>:auth<zef:jmaslak> is Keyring::Backend;
 
 our $cmd = "security";
 my $working;  # Cached "is this working" result

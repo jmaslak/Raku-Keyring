@@ -1,24 +1,29 @@
 {
-  "auth" : "cpan:JMASLAK",
-  "authors" : [
+  "auth": "zef:jmaslak",
+  "authors": [
     "Joelle Maslak"
   ],
-  "build-depends" : [ ],
-  "depends" : [ ],
-  "description" : "Raku OS Keyring Support Library",
-  "license" : "Artistic-2.0",
-  "name" : "Keyring",
-  "perl" : "6.d",
-  "provides" : {
-    "Keyring" : "lib/Keyring.rakumod",
-    "Keyring::Backend" : "lib/Keyring/Backend.rakumod",
-    "Keyring::Backend::MacOSX" : "lib/Keyring/Backend/MacOSX.rakumod",
-    "Keyring::Backend::Memory" : "lib/Keyring/Backend/Memory.rakumod",
-    "Keyring::Backend::Secret-Tool" : "lib/Keyring/Backend/Secret-Tool.rakumod"
+  "build-depends": [
+  ],
+  "depends": [
+  ],
+  "description": "Raku OS Keyring Support Library",
+  "license": "Artistic-2.0",
+  "name": "Keyring",
+  "perl": "6.d",
+  "provides": {
+    "Keyring": "lib/Keyring.rakumod",
+    "Keyring::Backend": "lib/Keyring/Backend.rakumod",
+    "Keyring::Backend::MacOSX": "lib/Keyring/Backend/MacOSX.rakumod",
+    "Keyring::Backend::Memory": "lib/Keyring/Backend/Memory.rakumod",
+    "Keyring::Backend::Secret-Tool": "lib/Keyring/Backend/Secret-Tool.rakumod"
   },
-  "resources" : [ ],
-  "source-url" : "https://github.com/jmaslak/Raku-Keyring.git",
-  "tags" : [ ],
-  "test-depends" : [ ],
-  "version" : "0.1.0"
+  "resources": [
+  ],
+  "source-url": "https://github.com/jmaslak/Raku-Keyring.git",
+  "tags": [
+  ],
+  "test-depends": [
+  ],
+  "version": "0.1.0"
 }
