@@ -5,7 +5,7 @@ use v6.d;
 # All Rights Reserved - See License
 #
 
-unit class Keyring:ver<0.1.0>:auth<zef:jmaslak>;
+unit class Keyring:ver<0.2.0>:auth<zef:jmaslak>;
 
 use Keyring::Backend;
 use Keyring::Backend::MacOSX;

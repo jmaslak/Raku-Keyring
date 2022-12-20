@@ -1,6 +1,8 @@
 Revision history for Keyring
 
 {{$NEXT}}
+
+0.2.0  2022-12-20T16:42:22Z
     - Migrate to Raku module ecosystem
 
 0.1.0  2020-10-19T04:29:21Z
